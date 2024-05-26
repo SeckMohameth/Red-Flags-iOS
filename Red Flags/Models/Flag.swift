@@ -9,10 +9,11 @@ import Foundation
 import SwiftData
 
 @Model
-final class Item {
+final class Flag {
+    var title: String
+    var detail: String
+    
     var timestamp: Date
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
-    }
+    
 }
