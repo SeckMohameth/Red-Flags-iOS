@@ -60,6 +60,7 @@ struct ContentView: View {
                 }
             }
         }
+        .tint(.purple)
     }
 
     private func deleteItems(offsets: IndexSet) {

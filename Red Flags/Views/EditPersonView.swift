@@ -26,8 +26,8 @@ struct EditPersonView: View {
                     DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
                     HStack {
                         Text("Height")
-                        Slider(value: $height, in: 4.0...7.0, step: 0.1)
-                        Text("\(height, specifier: "%.1f")")
+                        Slider(value: $height, in: 4.0...7.0, step: 0.01) // Adjust the step to 0.01 for finer increments
+                        Text("\(height, specifier: "%.2f")") // Display two decimal places
                     }
                     Stepper("Age: \(Int(age))", value: $age, in: 18...80)
                 }
@@ -45,7 +45,7 @@ struct EditPersonView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .tint(.blue)
+                    .tint(.purple)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
@@ -56,9 +56,13 @@ struct EditPersonView: View {
                         person.startDate = startDate
                         dismiss()
                     }
-                    .tint(.blue)
+                    .tint(.purple)
                 }
             }
         }
     }
+}
+
+#Preview {
+    EditPersonView(person: .constant(Person(id: UUID(), name: "Sample Person", age: 25, city: "Sample City", height: 5.9, startDate: Date(), strikes: 0)))
 }

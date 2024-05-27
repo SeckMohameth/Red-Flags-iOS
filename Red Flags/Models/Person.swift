@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 
-@Model class Person: Identifiable {
+@Model class Person: Identifiable, ObservableObject {
     var id: UUID
     var name: String
     var age: Int

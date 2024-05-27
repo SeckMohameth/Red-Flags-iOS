@@ -33,8 +33,8 @@ struct AddPersonView: View {
                     
                     HStack {
                         Text("Height")
-                        Slider(value: $height, in: 4.0...7.0, step: 0.1)
-                        Text("\(height, specifier: "%.1f") ft")
+                        Slider(value: $height, in: 4.0...7.0, step: 0.01) // Adjust the step to 0.01 for finer increments
+                        Text("\(height, specifier: "%.2f") ft") // Display two decimal places
                     }
                 }
                 

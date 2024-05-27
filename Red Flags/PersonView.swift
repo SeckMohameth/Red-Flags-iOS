@@ -50,11 +50,17 @@ struct PersonView: View {
                 ScrollView {
                     if selectedTab == 0 {
                         if let flags = person.flags {
-                            GreenFlagsView(flags: flags.filter { $0.isGreenFlag })
+                            GreenFlagsView(flags: Binding(
+                                get: { flags },
+                                set: { person.flags = $0 }
+                            ))
                         }
                     } else {
                         if let flags = person.flags {
-                            RedFlagsView(flags: flags.filter { !$0.isGreenFlag })
+                            RedFlagsView(flags: Binding(
+                                get: { flags },
+                                set: { person.flags = $0 }
+                            ))
                         }
                     }
                 }
@@ -79,11 +85,11 @@ struct PersonView: View {
 
 struct GreenFlagsView: View {
     @Environment(\.modelContext) private var modelContext
-    let flags: [Flag]
+    @Binding var flags: [Flag]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            ForEach(flags) { flag in
+            ForEach(flags.filter { $0.isGreenFlag }) { flag in
                 HStack {
                     Image(systemName: "flag.fill")
                         .foregroundColor(.green)
@@ -119,17 +125,18 @@ struct GreenFlagsView: View {
         withAnimation {
             modelContext.delete(flag)
             try? modelContext.save() // Save changes to the context
+            flags.removeAll { $0.id == flag.id } // Immediately update the state
         }
     }
 }
 
 struct RedFlagsView: View {
     @Environment(\.modelContext) private var modelContext
-    let flags: [Flag]
+    @Binding var flags: [Flag]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            ForEach(flags) { flag in
+            ForEach(flags.filter { !$0.isGreenFlag }) { flag in
                 HStack {
                     Image(systemName: "flag.fill")
                         .foregroundColor(.red)
@@ -165,6 +172,7 @@ struct RedFlagsView: View {
         withAnimation {
             modelContext.delete(flag)
             try? modelContext.save() // Save changes to the context
+            flags.removeAll { $0.id == flag.id } // Immediately update the state
         }
     }
 }
