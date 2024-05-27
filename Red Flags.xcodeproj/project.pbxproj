@@ -7,20 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A9117BF2C03F1F1007330B1 /* AddFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9117BE2C03F1F1007330B1 /* AddFlagView.swift */; };
+		7A9117C12C03F285007330B1 /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9117C02C03F285007330B1 /* EditPersonView.swift */; };
+		7A9117C32C03F292007330B1 /* EditFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9117C22C03F292007330B1 /* EditFlagView.swift */; };
+		7A9117C52C03F9B9007330B1 /* DateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9117C42C03F9B9007330B1 /* DateCardView.swift */; };
 		7A9569082BDE13D7007D5A21 /* Red_FlagsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9569072BDE13D7007D5A21 /* Red_FlagsApp.swift */; };
 		7A95690A2BDE13D7007D5A21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9569092BDE13D7007D5A21 /* ContentView.swift */; };
-		7A95690C2BDE13D7007D5A21 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A95690B2BDE13D7007D5A21 /* Item.swift */; };
+		7A95690C2BDE13D7007D5A21 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A95690B2BDE13D7007D5A21 /* Flag.swift */; };
 		7A95690E2BDE13D8007D5A21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A95690D2BDE13D8007D5A21 /* Assets.xcassets */; };
 		7A9569112BDE13D8007D5A21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A9569102BDE13D8007D5A21 /* Preview Assets.xcassets */; };
+		7A9569182BDF2F50007D5A21 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9569172BDF2F50007D5A21 /* AddPersonView.swift */; };
+		7A95691A2BDF313A007D5A21 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9569192BDF313A007D5A21 /* Person.swift */; };
+		7A95691C2BDF400A007D5A21 /* FlagDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A95691B2BDF400A007D5A21 /* FlagDetailView.swift */; };
+		7A95691E2BDF5E7F007D5A21 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A95691D2BDF5E7F007D5A21 /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A9117BE2C03F1F1007330B1 /* AddFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlagView.swift; sourceTree = "<group>"; };
+		7A9117C02C03F285007330B1 /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
+		7A9117C22C03F292007330B1 /* EditFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFlagView.swift; sourceTree = "<group>"; };
+		7A9117C42C03F9B9007330B1 /* DateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCardView.swift; sourceTree = "<group>"; };
 		7A9569042BDE13D7007D5A21 /* Red Flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red Flags.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9569072BDE13D7007D5A21 /* Red_FlagsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_FlagsApp.swift; sourceTree = "<group>"; };
 		7A9569092BDE13D7007D5A21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7A95690B2BDE13D7007D5A21 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7A95690B2BDE13D7007D5A21 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		7A95690D2BDE13D8007D5A21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A9569102BDE13D8007D5A21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A9569172BDF2F50007D5A21 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
+		7A9569192BDF313A007D5A21 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		7A95691B2BDF400A007D5A21 /* FlagDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagDetailView.swift; sourceTree = "<group>"; };
+		7A95691D2BDF5E7F007D5A21 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,9 +50,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A9117BC2C012462007330B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A9569192BDF313A007D5A21 /* Person.swift */,
+				7A95690B2BDE13D7007D5A21 /* Flag.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A9117BD2C02E457007330B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A9117C42C03F9B9007330B1 /* DateCardView.swift */,
+				7A9569172BDF2F50007D5A21 /* AddPersonView.swift */,
+				7A9117BE2C03F1F1007330B1 /* AddFlagView.swift */,
+				7A9117C02C03F285007330B1 /* EditPersonView.swift */,
+				7A9117C22C03F292007330B1 /* EditFlagView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7A9568FB2BDE13D7007D5A21 = {
 			isa = PBXGroup;
 			children = (
+				7A9569072BDE13D7007D5A21 /* Red_FlagsApp.swift */,
 				7A9569062BDE13D7007D5A21 /* Red Flags */,
 				7A9569052BDE13D7007D5A21 /* Products */,
 			);
@@ -53,9 +91,11 @@
 		7A9569062BDE13D7007D5A21 /* Red Flags */ = {
 			isa = PBXGroup;
 			children = (
-				7A9569072BDE13D7007D5A21 /* Red_FlagsApp.swift */,
 				7A9569092BDE13D7007D5A21 /* ContentView.swift */,
-				7A95690B2BDE13D7007D5A21 /* Item.swift */,
+				7A95691B2BDF400A007D5A21 /* FlagDetailView.swift */,
+				7A95691D2BDF5E7F007D5A21 /* PersonView.swift */,
+				7A9117BD2C02E457007330B1 /* Views */,
+				7A9117BC2C012462007330B1 /* Models */,
 				7A95690D2BDE13D8007D5A21 /* Assets.xcassets */,
 				7A95690F2BDE13D8007D5A21 /* Preview Content */,
 			);
@@ -140,9 +180,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9117C32C03F292007330B1 /* EditFlagView.swift in Sources */,
+				7A95691A2BDF313A007D5A21 /* Person.swift in Sources */,
 				7A95690A2BDE13D7007D5A21 /* ContentView.swift in Sources */,
-				7A95690C2BDE13D7007D5A21 /* Item.swift in Sources */,
+				7A9117BF2C03F1F1007330B1 /* AddFlagView.swift in Sources */,
+				7A9569182BDF2F50007D5A21 /* AddPersonView.swift in Sources */,
+				7A95690C2BDE13D7007D5A21 /* Flag.swift in Sources */,
 				7A9569082BDE13D7007D5A21 /* Red_FlagsApp.swift in Sources */,
+				7A95691E2BDF5E7F007D5A21 /* PersonView.swift in Sources */,
+				7A95691C2BDF400A007D5A21 /* FlagDetailView.swift in Sources */,
+				7A9117C12C03F285007330B1 /* EditPersonView.swift in Sources */,
+				7A9117C52C03F9B9007330B1 /* DateCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

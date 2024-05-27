@@ -4,52 +4,68 @@
 //
 //  Created by Mohameth Seck on 4/28/24.
 //
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query(sort: \Person.name) private var dates: [Person]
+    
+    @State private var showAddDate = false
+    @State private var showEditSheet = false
+    @State private var selectedDate: Person?
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                ForEach(dates) { person in
+                    NavigationLink(destination: PersonView(person: person)) {
+                        DateCardView(person: person)
+                    }
+                    .listRowSeparator(.hidden)
+                    .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                        Button {
+                            selectedDate = person
+                            showEditSheet = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "pencil")
+                                Text("Edit")
+                            }
+                        }
+                        .tint(.blue)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
+            .listStyle(.plain)
+            .navigationTitle("My Dates")
+            .sheet(item: $selectedDate) { person in
+                EditPersonView(person: Binding(
+                    get: { selectedDate ?? person },
+                    set: { selectedDate = $0 }
+                ))
+            }
+            .sheet(isPresented: $showAddDate) {
+                AddPersonView()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: {
+                        showAddDate = true
+                    }) {
                         Label("Add Item", systemImage: "plus")
                     }
+                    .tint(.purple)
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
         }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(dates[index])
             }
         }
     }
@@ -57,5 +73,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Person.self, inMemory: true)
 }

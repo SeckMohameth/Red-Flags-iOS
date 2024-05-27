@@ -10,6 +10,11 @@ import SwiftData
 
 @main
 struct Red_FlagsApp: App {
+    
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    }
+    
 
     var body: some Scene {
         WindowGroup {

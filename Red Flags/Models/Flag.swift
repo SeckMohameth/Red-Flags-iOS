@@ -12,8 +12,19 @@ import SwiftData
 final class Flag {
     var title: String
     var detail: String
+    var isGreenFlag: Bool
+    var timeStamp: Date
     
-    var timestamp: Date
+    @Relationship(deleteRule: .nullify, inverse: \Person.flags) var person: Person?
+    
+    init(title: String, detail: String, isGreenFlag: Bool, timeStamp: Date, person: Person? = nil) {
+        self.title = title
+        self.detail = detail
+        self.isGreenFlag = isGreenFlag
+        self.timeStamp = timeStamp
+        self.person = person
+    }
     
     
+  
 }

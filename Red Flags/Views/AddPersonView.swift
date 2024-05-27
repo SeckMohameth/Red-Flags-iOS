@@ -4,46 +4,52 @@
 //
 //  Created by Mohameth Seck on 4/28/24.
 //
-
 import SwiftUI
+import SwiftData
 
 struct AddPersonView: View {
-    @Environment(\.modelContext) private var context
-    
     @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.modelContext) private var context: ModelContext
+
     @State private var name: String = ""
+    @State private var age: String = ""
+    @State private var city: String = ""
+    @State private var height: Double = 5.0 // Default height value
     @State private var startDate = Date()
-    
+
     var body: some View {
-        NavigationStack{
-            VStack(alignment: .leading) {
+        NavigationStack {
+            Form {
+                Section(header: Text("Personal Details")) {
+                    TextField("Enter the name of your date", text: $name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    TextField("Enter the age", text: $age)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    TextField("Enter the city", text: $city)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    HStack {
+                        Text("Height")
+                        Slider(value: $height, in: 4.0...7.0, step: 0.1)
+                        Text("\(height, specifier: "%.1f") ft")
+                    }
+                }
                 
-                Text("Name")
-                TextField("Enter the name of your date", text: $name)
-                    .font(.system(size: 20, weight: .semibold, design: .rounded))
-                    .padding(.horizontal)
-                    .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color(.systemGray5), lineWidth: 1)
+                Section(header: Text("Relationship Details")) {
+                    DatePicker(
+                        "When did you start seeing each other?",
+                        selection: $startDate,
+                        displayedComponents: [.date]
                     )
-                Spacer()
-                DatePicker(
-                    "When did you start seeing each other?",
-                    selection: $startDate,
-                    displayedComponents: [.date]
-                )
-                Spacer()
-                
+                }
             }
-            .padding()
             .navigationTitle("New Date")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        dismiss()
-//                        let newDate = Person(name: name, startDate: startDate)
-//                        context.insert(newDate)
-                    }) {
+                    Button(action: savePerson) {
                         Text("Save")
                             .font(.headline)
                             .padding()
@@ -52,7 +58,16 @@ struct AddPersonView: View {
             }
         }
     }
-    
+
+    private func savePerson() {
+        guard let age = Int(age) else {
+            // Handle invalid input
+            return
+        }
+        let newPerson = Person(id: UUID(), name: name, age: age, city: city, height: height, startDate: startDate, strikes: 0)
+        context.insert(newPerson)
+        dismiss()
+    }
 }
 
 #Preview {
